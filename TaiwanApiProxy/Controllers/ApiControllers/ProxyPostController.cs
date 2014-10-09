@@ -104,7 +104,6 @@
                 ActionName = GetActionName<T>(model),
                 ActionModel = model.GetType().Name,
                 Input = GetInput<T>(model),
-                Ip = Request.GetClientIpAddress(),
                 LogTime = DateTime.Now
             };
 

@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -157,7 +158,6 @@
     <Compile Include="Services\IRuleService.cs" />
     <Compile Include="Services\RuleService.cs" />
     <Compile Include="Utilities\ActionExtension.cs" />
-    <Compile Include="Utilities\RequestExtension.cs" />
     <Compile Include="Utilities\ModelExtension.cs" />
     <Compile Include="Utilities\ObjectSerializer.cs" />
     <Compile Include="Utilities\ApiActionSelector.cs" />

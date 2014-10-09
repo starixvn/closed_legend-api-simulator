@@ -13,7 +13,5 @@
         public string Input { get; set; }
 
         public DateTime LogTime { get; set; }
-
-        public string Ip { get; set; }
     }
 }

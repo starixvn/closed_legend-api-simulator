@@ -23,7 +23,7 @@
 
         public IEnumerable<T> GetRules<T>()
         {
-            return _dataService.Read<T>();
+            return _dataService.Read<T>() ?? new List<T>();
         }
 
         public T GetRule<T>(T model) where T : class
