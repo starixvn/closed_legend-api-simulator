@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LogInformation>
+@{
+    ViewBag.Title = "Log Information";
+}
+<header>
+    <h3>Log Information</h3>
+</header>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>ActionName</th>
+            <th>Input</th>
+            <th>Ip</th>
+            <th>LogTime</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.Id</td>
+                <td>@log.ActionName</td>
+                <td>@log.Input</td>
+                <td>@log.Ip</td>
+                <td>@log.LogTime.ToString("dd/MM/yyyy hh:mm:ss")</td>
+            </tr>
+        }
+    </tbody>
+</table>

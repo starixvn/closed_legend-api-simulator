@@ -1,0 +1,41 @@
+﻿@model RuleListViewModel
+
+@if(Model.ApiViewModel != null)
+{
+<tbody id="sortable">
+    @foreach(var api in Model.ApiViewModel)
+     {
+        var properties = api.GetType().GetProperties();
+        var idProperty = api.GetType().GetProperty("Id",BindingFlags.Public | BindingFlags.Instance);
+        <tr>
+            <td data-name="@idProperty.Name" data-value="@idProperty.GetValue(api, null)" class="rule id-rule">@idProperty.GetValue(api, null)</td>
+        @foreach (var property in properties)
+        {
+            var attribute = (ParameterAttribute)property.GetCustomAttributes(typeof(ParameterAttribute), false).FirstOrDefault();
+            
+            if (attribute == null)
+            {
+                <td data-name="@property.Name" data-value="@property.GetValue(api, null)" class="rule">@property.GetValue(api, null)</td>
+            }
+            else
+            {
+                if (attribute.ParamType == ParamType.Status)
+                {
+                    <td data-name="@property.Name" data-value="@property.GetValue(api, null)" data-url="@Url.Action(Model.Action, "Rule", new { method = "ChangeStatus", help = Model.Help })" class="rule">@Html.CheckBox("RuleStatus", Convert.ToBoolean(property.GetValue(api, null)), new { @class = "rule-status" })</td>
+                }
+                else if (attribute.ParamType != ParamType.None)
+                {
+                    <td data-name="@property.Name" data-value="@property.GetValue(api, null)" class="rule">@property.GetValue(api, null)</td>
+                }
+            }
+        }
+            <td>
+                <a href="#" class="edit" data-toggle="modal" data-target="#myModal" data-url="@Url.Action(Model.Action, "Rule", new { method = "Edit", help = Model.Help, id = api.Id })">Edit</a>
+            </td>
+            <td>
+                <a href="#" class="delete" data-url="@Url.Action(Model.Action, "Rule", new { method = "Delete", help = Model.Help })">Delete</a>
+            </td>
+        </tr>
+     }
+</tbody>
+}

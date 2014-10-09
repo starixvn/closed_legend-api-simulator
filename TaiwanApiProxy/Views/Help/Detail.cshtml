@@ -1,0 +1,37 @@
+﻿@model HelpActionViewModel
+@{
+    ViewBag.Title = Model.Action;
+}
+<header>
+    <h3>@Model.Action</h3>
+</header>
+
+@using (Html.BeginForm(Model.Action, "Api", FormMethod.Post, new { @target = "_blank", @class = "form-horizontal", @role = "form" }))
+{
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var parameter in Model.Parameters)
+       {
+       <tr>
+            <td>@parameter.Name</td>
+            <td><input type="text" name="@parameter.Name"/></td>
+            <td>@parameter.Type</td>
+       </tr>
+       }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td><button type="submit" class="btn btn-primary">Invoke</button></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+}

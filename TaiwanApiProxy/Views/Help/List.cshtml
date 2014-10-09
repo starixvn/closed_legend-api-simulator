@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ApiAction>
+@{
+    ViewBag.Title = "List Taiwan API";
+}
+@section scripts{
+    @Scripts.Render("~/js/home")
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>URI</th>
+            <th>Rule</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var apiAction in Model)
+        {
+            <tr>
+                <td>@(apiAction.Name)</td>
+                <td><a href="@(Url.Action(apiAction.Name, "Api", new { help = apiAction.Help }))" target="_blank">@(Url.Action(apiAction.Name, "Api"))</a></td>
+                <td><a href="@(Url.Action(apiAction.Name, "Rule", new { help = apiAction.Help }))" target="_blank">View</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <button type="button" id="log" data-url="@Url.Action("Index", "Log")" class="btn btn-primary">View Logs</button>
+            </td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<string>
+<thead>
+    <tr>
+        <th>Id</th>
+        @foreach (var columnName in Model)
+        {
+            <th>@columnName</th>
+        }
+        <th colspan="2">Action</th>
+    </tr>
+</thead>

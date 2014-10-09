@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/css/bootstrap")
+    @Styles.Render("~/css/site")
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/js/jquery")
+    @Scripts.Render("~/js/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

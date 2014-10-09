@@ -1,0 +1,44 @@
+﻿@model RuleViewModel
+@section scripts{
+    @Scripts.Render("~/js/rule")
+}
+@using (Html.BeginForm(Model.Action, "Rule", new { method = Method.Edit, help = Model.Help }, FormMethod.Post, new { @class = "form-horizontal form-add" }))
+{
+    @Html.Hidden("Id", Model.RuleId);
+<table class="table">
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var parameter in Model.Parameters)
+       {
+       <tr>
+            <td>@parameter.Name</td>
+            @if (parameter.IsOutput)
+            {
+                <td><textarea name="@parameter.Name" id="@parameter.Name" class="form-control" rows="5">@parameter.Value</textarea></td>
+            }
+            else
+            {
+                <td><input type="text" name="@parameter.Name" id="@parameter.Name" value="@parameter.Value" /></td>
+            }
+            <td>@parameter.Type</td>
+       </tr>
+       }
+        <tr>
+            <td colspan="3" class="warning">@Html.Raw(Model.Note)</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td><button type="submit" class="btn btn-primary">Update</button></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+}
