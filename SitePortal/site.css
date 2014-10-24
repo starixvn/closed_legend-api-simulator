@@ -1,0 +1,40 @@
+﻿body
+{
+    color: #7a7a7a;
+    font-size: 16px;
+    margin: 8px;
+}
+.header
+{
+    background: #d93b3c;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.container
+{
+    margin-left: 20px;
+}
+
+.container table
+{
+    width: 100%;
+}
+
+.container table td, .container table th
+{
+    padding: 10px;
+}
+
+.container table td.index
+{
+    text-align: center;
+}
+
+.container table tbody tr:nth-child(odd) td
+{
+    background-color: #f9f9f9;
+}

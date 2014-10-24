@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="siteListApp">
+<head>
+    <title>Site Portal</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.min.js"
+        type="text/javascript"></script>
+    <script src="site.js" type="text/javascript"></script>
+</head>
+<body data-ng-controller="SiteListController">
+    <div class="header">
+        {{header}}
+    </div>
+    <div class="container">
+        <table class="table">
+            <colgroup>
+                <col width="100" />
+                <col />
+            </colgroup>
+            <tbody>
+                <tr data-ng-repeat="site in sites | filter: {active: true}">
+                    <td class="index">
+                        <a href="{{site.index}}">{{site.index}}</a>
+                    </td>
+                    <td class="description" data-ng-bind-html="site.description">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

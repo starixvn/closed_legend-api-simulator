@@ -5,6 +5,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiwanApiProxy", "TaiwanApi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiwanApiProxy.Resources", "TaiwanApiProxy.Resources\TaiwanApiProxy.Resources.csproj", "{42C28CB0-72D9-4DA9-80D9-4E13C06040A0}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SitePortal", "SitePortal\", "{9A31B21D-3454-4923-9B20-C395A579B9B7}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/SitePortal"
+		Debug.AspNetCompiler.PhysicalPath = "SitePortal\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SitePortal\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SitePortal"
+		Release.AspNetCompiler.PhysicalPath = "SitePortal\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SitePortal\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53235"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +39,10 @@ Global
 		{42C28CB0-72D9-4DA9-80D9-4E13C06040A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42C28CB0-72D9-4DA9-80D9-4E13C06040A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42C28CB0-72D9-4DA9-80D9-4E13C06040A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A31B21D-3454-4923-9B20-C395A579B9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A31B21D-3454-4923-9B20-C395A579B9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A31B21D-3454-4923-9B20-C395A579B9B7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A31B21D-3454-4923-9B20-C395A579B9B7}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
