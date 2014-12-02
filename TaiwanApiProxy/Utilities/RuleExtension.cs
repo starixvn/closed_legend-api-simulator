@@ -16,20 +16,20 @@
 
             foreach (var property in properties)
             {
+                var type = property.PropertyType;
                 var attribute = (ParameterAttribute)property.GetCustomAttributes(typeof(ParameterAttribute), false).FirstOrDefault();
-                var ruleValue = Convert.ChangeType(property.GetValue(rule, null), property.PropertyType);
-                var modelValue = Convert.ChangeType(property.GetValue(model, null), property.PropertyType);
-
-                if ((attribute != null && attribute.ParamType == ParamType.None) 
+                var ruleValue = Convert.ChangeType(property.GetValue(rule, null), type);
+                var modelValue = Convert.ChangeType(property.GetValue(model, null), type);
+                object defaultValue = type.IsValueType ? Activator.CreateInstance(type) : string.Empty;
+                if ((attribute != null && attribute.ParamType == ParamType.None)
                     || ruleValue == null
-                    || (modelValue != null
-                    && (property.PropertyType.Equals(typeof(string))
-                    && ruleValue.ToString().Equals(modelValue.ToString(), StringComparison.CurrentCultureIgnoreCase))))
+                    || ruleValue == defaultValue
+                    || string.Equals(ruleValue.ToString(), defaultValue.ToString(), StringComparison.CurrentCultureIgnoreCase)
+                    || string.Equals(ruleValue.ToString(), modelValue.ToString(), StringComparison.CurrentCultureIgnoreCase))
                 {
                     continue;
                 }
-
-                if (!ruleValue.Equals(modelValue))
+                else
                 {
                     return false;
                 }
@@ -53,7 +53,7 @@
         public void UpdateRuleInfomation<T>(T rule, T model)
         {
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            
+
             foreach (var property in properties)
             {
                 var attribute = (ParameterAttribute)property.GetCustomAttributes(typeof(ParameterAttribute), false).FirstOrDefault();

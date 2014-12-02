@@ -20,7 +20,7 @@
             var path = GetFilePath(typeof(T).Name);
             if (!File.Exists(path))
             {
-                return null;
+                return new List<T>();
             }
 
             return ObjectSerializer.DeserializeList<T>(XDocument.Load(path).ToString());
